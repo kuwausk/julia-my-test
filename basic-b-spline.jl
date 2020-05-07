@@ -24,6 +24,14 @@ k = Knots(1:8)
 P = BSplineSpace(p,k)
 plot([t->BSplineBasis₊₀(i,P,t) for i in 1:dim(P)], 1,8)
 plot([t->BSplineBasis′₊₀(i,P,t) for i in 1:dim(P)], 1,8)
+
+plot(
+    plot([t->BSplineBasis₊₀(i,P,t) for i in 1:dim(P)], 1,8),
+    plot([t->BSplineBasis′₊₀(i,P,t) for i in 1:dim(P)], 1,8),
+    layout=(2,1),
+    link=:x
+)
+##
 dim(P)
 BSplineSupport(3,P)
 p = 2
